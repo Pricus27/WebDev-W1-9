@@ -3,6 +3,8 @@ h1 {
 }
 img {
     display: block;
+    height: auto;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
@@ -11,19 +13,18 @@ img {
 h2 {
     text-align: center;
 }
+
 p{
     text-align: center;
 }
-ul, ol, li {
+ul {
     text-align: center;
-    list-style-position: inside;
 }
 li {
     text-align: center;
-    list-style-position: inside;
 }
 body {
-  background-color: lightgreen; 
+  background-color: white; 
 }
 .center-link {
     display: block;
