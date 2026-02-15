@@ -10,7 +10,7 @@ if (name === "") {
     result.textContent = "Name is required!";
     } else {
     result.className = "text-success fw-semibold";
-    result.textContent = "Welcome, " + name + "! ✅";
+    result.textContent = "Welcome, " + name + "!";
     }
 });
     
