@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-// --- DELETE ---
+
 if (isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
     $stmt = mysqli_prepare($conn, "DELETE FROM journal WHERE id = ?");
@@ -12,7 +12,7 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// --- EDIT: load entry for form ---
+
 $editId = isset($_GET['edit']) ? (int) $_GET['edit'] : 0;
 $formTitle = '';
 $formContent = '';
@@ -31,7 +31,7 @@ if ($editId > 0) {
     mysqli_stmt_close($stmt);
 }
 
-// --- ADD or UPDATE ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $content = trim($_POST['content'] ?? '');
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// --- GET ALL ENTRIES ---
+
 $result = mysqli_query($conn, "SELECT id, title, content, entry_date FROM journal ORDER BY entry_date DESC, id DESC");
 ?>
 <!DOCTYPE html>
@@ -62,6 +62,7 @@ $result = mysqli_query($conn, "SELECT id, title, content, entry_date FROM journa
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href ="journal.css">
     <style>
         body { background: #f8f9fa; }
         .journal-card { max-width: 800px; margin: 0 auto; }
@@ -72,7 +73,7 @@ $result = mysqli_query($conn, "SELECT id, title, content, entry_date FROM journa
     <div class="container py-4 journal-card">
         <h1 class="mb-4">My Journal</h1>
 
-        <!-- Add / Edit form -->
+        
         <div class="card shadow-sm mb-4">
             <div class="card-header">
                 <?php echo $editId ? 'Edit Entry' : 'New Entry'; ?>
@@ -99,7 +100,7 @@ $result = mysqli_query($conn, "SELECT id, title, content, entry_date FROM journa
             </div>
         </div>
 
-        <!-- List of entries -->
+        
         <div class="card shadow-sm">
             <div class="card-header">All Entries</div>
             <div class="card-body p-0">

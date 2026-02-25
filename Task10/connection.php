@@ -1,8 +1,4 @@
 <?php
-/**
- * Database connection for Journal application
- * Uses mysqli
- */
 
 $host     = 'localhost';
 $username = 'root';
@@ -16,3 +12,4 @@ if (!$conn) {
 }
 
 mysqli_set_charset($conn, 'utf8mb4');
+?>
